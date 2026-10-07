@@ -8,7 +8,7 @@ export function registerSearchCards(server: McpServer): void {
     {
       title: "Search Cards",
       description:
-        "Search Anki cards using Anki's query syntax. Returns card content, tags, and study stats. Examples: 'deck:CIPP tag:chapter3', 'GDPR', 'is:due deck:CIPP'.",
+        "Search Anki cards using Anki's query syntax. Returns card content, tags, study stats, and the note_id needed by the editing tools. Examples: 'deck:CIPP tag:chapter3', 'GDPR', 'is:due deck:CIPP'.",
       inputSchema: {
         query: z
           .string()
@@ -51,6 +51,8 @@ export function registerSearchCards(server: McpServer): void {
 
           return {
             card_id: card.cardId,
+            // Edits in Anki apply to notes, so the editing tools need this ID
+            note_id: card.note,
             front,
             back,
             tags: card.tags,
