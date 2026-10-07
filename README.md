@@ -1,6 +1,6 @@
 # Anki Connect MCP Server
 
-Let Claude see your Anki study progress — what's due, what you're struggling with, and how consistent you've been.
+Let Claude see your Anki study progress — what's due, what you're struggling with, and how consistent you've been — and fix or retag cards for you.
 
 ---
 
@@ -67,6 +67,10 @@ That's it. You should see the Anki tools in the hammer icon at the bottom of Cla
 | **get_difficult_cards** | Finds the cards you struggle with most (by lapses or ease factor) |
 | **get_review_history** | Daily review counts, streak, and whether you're trending up or down |
 | **search_cards** | Looks up specific cards by topic, tag, or any Anki search query |
+| **update_note** | Edits a card's fields (e.g. corrects the answer on the back) |
+| **update_tags** | Adds or removes tags on one or more cards |
+
+> **Heads up:** `update_note` and `update_tags` change your Anki collection. By default Claude Desktop asks before running a tool, so you can check each edit first (unless you choose "Always allow"). Each edit shows the old and new values, so you can put things back if needed.
 
 ## Usage
 
@@ -81,6 +85,10 @@ That's it. You should see the Anki tools in the hammer icon at the bottom of Cla
 > "Have I been consistent with reviews this month?"
 >
 > "Show me cards about GDPR data transfers"
+>
+> "The answer on my Article 17 card is wrong — fix it to say right to erasure"
+>
+> "Tag all my cards about data transfers with chapter5"
 
 Claude will call the tools automatically and give you a plain-English summary.
 
