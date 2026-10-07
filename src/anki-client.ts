@@ -57,6 +57,16 @@ export interface CardInfo {
   tags: string[];
 }
 
+// AnkiConnect returns an empty object for a note ID that doesn't exist,
+// so every property here may be missing in practice
+export interface NoteInfo {
+  noteId: number;
+  modelName: string;
+  tags: string[];
+  fields: Record<string, { value: string; order: number }>;
+  cards: number[];
+}
+
 export interface DeckStats {
   deck_id: number;
   name: string;
