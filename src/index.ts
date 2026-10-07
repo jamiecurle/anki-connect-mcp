@@ -5,6 +5,8 @@ import { registerDueToday } from "./tools/due-today.js";
 import { registerDifficultCards } from "./tools/card-difficulty.js";
 import { registerReviewHistory } from "./tools/review-history.js";
 import { registerSearchCards } from "./tools/search-cards.js";
+import { registerUpdateNote } from "./tools/update-note.js";
+import { registerUpdateTags } from "./tools/update-tags.js";
 
 const server = new McpServer({
   name: "anki-connect",
@@ -16,6 +18,8 @@ registerDueToday(server);
 registerDifficultCards(server);
 registerReviewHistory(server);
 registerSearchCards(server);
+registerUpdateNote(server);
+registerUpdateTags(server);
 
 async function main() {
   const transport = new StdioServerTransport();
